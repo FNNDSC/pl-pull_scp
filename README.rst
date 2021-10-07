@@ -1,14 +1,14 @@
-pl-pull-scp
+pl-pull_scp
 ================================
 
-.. image:: https://img.shields.io/docker/v/fnndsc/pl-pull-scp?sort=semver
-    :target: https://hub.docker.com/r/fnndsc/pl-pull-scp
+.. image:: https://img.shields.io/docker/v/fnndsc/pl-pull_scp?sort=semver
+    :target: https://hub.docker.com/r/fnndsc/pl-pull_scp
 
-.. image:: https://img.shields.io/github/license/fnndsc/pl-pull-scp
-    :target: https://github.com/FNNDSC/pl-pull-scp/blob/master/LICENSE
+.. image:: https://img.shields.io/github/license/fnndsc/pl-pull_scp
+    :target: https://github.com/FNNDSC/pl-pull_scp/blob/master/LICENSE
 
-.. image:: https://github.com/FNNDSC/pl-pull-scp/workflows/ci/badge.svg
-    :target: https://github.com/FNNDSC/pl-pull-scp/actions
+.. image:: https://github.com/FNNDSC/pl-pull_scp/workflows/ci/badge.svg
+    :target: https://github.com/FNNDSC/pl-pull_scp/actions
 
 
 .. contents:: Table of Contents
@@ -34,7 +34,7 @@ Usage
 
 .. code::
 
-    docker run --rm fnndsc/pl-pull-scp pull_scp             \
+    docker run --rm fnndsc/pl-pull_scp pull_scp             \
         [-h|--help]                                         \
         [--json] [--man] [--meta]                           \
         [--savejson <DIR>]                                  \
@@ -78,7 +78,7 @@ Getting inline help is:
 
 .. code:: bash
 
-    docker run --rm fnndsc/pl-pull-scp pull_scp --man
+    docker run --rm fnndsc/pl-pull_scp pull_scp --man
 
 Run
 ~~~
@@ -90,7 +90,7 @@ You need to specify input and output directories using the `-v` flag to `docker 
 
     docker run --rm -u $(id -u)                             \
         -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing      \
-        fnndsc/pl-pull-scp pull_scp                         \
+        fnndsc/pl-pull_scp pull_scp                         \
         --username johnnyapple                              \
         --password 'mysecret'                               \
         --host computer.org                                 \
@@ -105,13 +105,13 @@ Build the Docker container:
 
 .. code:: bash
 
-    docker build -t local/pl-pull-scp .
+    docker build -t local/pl-pull_scp .
 
 Run unit tests:
 
 .. code:: bash
 
-    docker run --rm local/pl-pull-scp nosetests
+    docker run --rm local/pl-pull_scp nosetests
 
 Examples
 --------
