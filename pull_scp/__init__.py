@@ -4,39 +4,20 @@ from typing     import List
 from .config    import LOCAL_FILE_DIRECTORY
 
 from .client    import RemoteClient
-from .files     import fetch_local_files
 
+def localfiles_uploadToRemote(ssh_remote_client: RemoteClient, l_localpath: List[str]):
+    """Do a recursive upload to remote on each element in the <l_localpath>
 
-# def initiate_client(ssh_remote_client: RemoteClient):
-#     """
-#     Initialize remote host client and execute actions.
-
-#     :param ssh_remote_client: Remote server.
-#     :type ssh_remote_client: RemoteClient
-#     """
-#     upload_files_to_remote(ssh_remote_client)
-#     commandList_execOnRemote(
-#         ssh_remote_client,
-#         commands=[
-#             "mkdir /uploads",
-#             "cd /uploads/ && ls",
-#         ],
-#     )
-
-
-def upload_files_to_remote(ssh_remote_client: RemoteClient):
+    Args:
+        ssh_remote_client (RemoteClient): the ssh/scp client instance
+        l_localpath (List[str]): a list of localpath(s) to push
     """
-    Upload files to remote via SCP.
-
-    :param ssh_remote_client: Remote server.
-    :type ssh_remote_client: RemoteClient
-    """
-    local_files = fetch_local_files(LOCAL_FILE_DIRECTORY)
-    ssh_remote_client.bulk_upload(local_files)
-
+    ssh_remote_client.bulk_upload(l_localpath)
 
 def commandList_execOnRemote(
-    ssh_remote_client: RemoteClient, l_commands: List[str] = None
+    ssh_remote_client:  RemoteClient,
+    l_commands:         List[str]       = None,
+    b_quiet:            bool            = False
 ) -> list:
     """
     Execute UNIX command on the remote host. Commands are passed as a
@@ -47,5 +28,5 @@ def commandList_execOnRemote(
     :param commands: List of commands to run on remote host.
     :type commands: List[str]
     """
-    l_ret  : list = ssh_remote_client.commandList_exec(l_commands)
+    l_ret  : list = ssh_remote_client.commandList_exec(l_commands, b_quiet)
     return l_ret

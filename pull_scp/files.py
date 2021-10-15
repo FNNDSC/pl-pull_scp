@@ -5,13 +5,13 @@ from typing     import List
 from .config    import LOCAL_FILE_DIRECTORY
 
 
-def fetch_local_files(local_file_dir: str) -> List[str]:
+def list_localFiles(str_localDir: str) -> List[str]:
     """
     Create list of file paths.
 
-    :param local_file_dir: Local filepath of assets to SCP to host.
-    :type local_file_dir: List[str]
+    :param str_localDir: Local filepath of assets to SCP to host.
+    :type str_localDir: List[str]
     """
-    local_files = walk(local_file_dir)
+    local_files = walk(str_localDir)
     for root, dirs, files in local_files:
         return [f"{LOCAL_FILE_DIRECTORY}/{file}" for file in files]

@@ -16,7 +16,8 @@ SSH_USERNAME            = getenv("SSH_USERNAME")
 SSH_PASSWORD            = getenv("SSH_PASSWORD")
 SSH_KEY_FILEPATH        = getenv("SSH_KEY_FILEPATH")
 SCP_DESTINATION_FOLDER  = getenv("SCP_DESTINATION_FOLDER")
-SSH_CONFIG_VALUES = [
+
+SSH_CONFIG_VALUES       = [
     {"host":        SSH_REMOTE_HOST},
     {"user":        SSH_USERNAME},
     {"password":    SSH_PASSWORD},

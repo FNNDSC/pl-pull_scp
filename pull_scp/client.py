@@ -40,10 +40,10 @@ class RemoteClient:
             client.set_missing_host_key_policy(AutoAddPolicy())
             client.connect(
                 self.host,
-                username=self.user,
-                password=self.password,
-                key_filename=self.ssh_key_filepath,
-                timeout=5000,
+                username        =   self.user,
+                password        =   self.password,
+                key_filename    =   self.ssh_key_filepath,
+                timeout         =   5000,
             )
             self.client     = client
             return client
@@ -115,20 +115,23 @@ class RemoteClient:
         }
 
         for o in l_obj:
-            self.file_get(o)
+            self.filepath_get(o)
             d_ret['pulled'].append(o)
         if len(d_ret['pulled']):
             b_status    = True
         d_ret['status'] = b_status
         return d_ret
 
-    def file_get(self, file: str):
-        """Download file from remote host."""
+    def filepath_get(self, filepath: str):
+        """Download filepath from remote host."""
         if self.verbosity:
-            LOGGER.info("Pulling %s..." % file)
-        self.scp.get(file, local_path = self.localpath)
+            LOGGER.info("Pulling %s@%s:%s..." % (self.user, self.host, filepath))
+        try:
+            self.scp.get(filepath, local_path = self.localpath, recursive = True)
+        except Exception as e:
+            LOGGER.error("An error occured executing %s! Perhaps this is a special file?" % e)
 
-    def commandList_exec(self, commands: List[str]) -> list:
+    def commandList_exec(self, commands: List[str], b_quiet: bool = False) -> list:
         """
         Execute multiple commands in succession.
 
@@ -148,10 +151,10 @@ class RemoteClient:
                 pass
             l_stdout    = [f.rstrip() for f in stdout.readlines()]
             l_stderr    = [f.rstrip() for f in stderr.readlines()]
-            for line in l_stdout:
-                if self.verbosity >=2:
-                    LOGGER.trace(f"INPUT: {cmd}")
-                    LOGGER.info(f"OUTPUT: {line}")
+            if not b_quiet:
+                for line in l_stdout:
+                        LOGGER.trace(f"(remote): {cmd}")
+                        LOGGER.info(f"(remote): {cmd}: {line}")
             l_ret.append( {
                 'stdin'     : l_stdin,
                 'stdout'    : l_stdout,
