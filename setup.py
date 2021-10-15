@@ -6,12 +6,12 @@ with open(path.join(path.dirname(path.abspath(__file__)), 'README.rst')) as f:
 
 setup(
     name             = 'pull_scp',
-    version          = '0.1',
+    version          = '1.0.0',
     description      = 'This plugin application is used to recursively copy data from a remote host into an analysis root node.',
     long_description = readme,
     author           = 'Rudolph Pienaar -- FNNDSC',
     author_email     = 'rudolph.pienaar@childrens.harvard.edu',
-    url              = 'http://wiki',
+    url              = 'https://github.com/FNNDSC/pl-pull_scp',
     packages         = ['pull_scp'],
     install_requires = ['chrisapp'],
     test_suite       = 'nose.collector',
