@@ -36,7 +36,7 @@ Other than login credentials, this plugin also needs a ``filepath`` in the remot
 Warning
 -------
 
-This plugin/app is not considered or purported to be secure! One deployment vector has the login credentials contained within an `.env` file in cleartext and copied into the container. Deploying such a container will expose login credentials! For better security, supply login credentials from the CLI or from within environment variables:
+This plugin/app is not considered or purported to be secure! One deployment vector has the login credentials contained within an ``.env`` file in cleartext and copied into the container. Deploying such a container will expose login credentials! For better security, supply login credentials from the CLI or from within environment variables:
 
 .. code:: bash
 
@@ -199,20 +199,15 @@ Using login credentials stored in the container's `.env` file:
                                 the destination dir name might not match the host dirname!)
     10-15-2021 16:25:53 | INFO: (local): du -ksh /outgoing: 142M	/outgoing
 
-
-            -v $PWD/out:/outgoing                                   \
-            -it                                                     \
-            local/pl-pull_scp pull_scp                              \
-            -v 1 --filepath /home/rudolphpienaar/Desktop /outgoing
-
 Using login credentials from the CLI:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
-    docker run --rm --name=pl-pull_scp                      \
+    docker run --rm -u $(id -u) --name=pl-pull_scp          \
                 -v $PWD/out:/outgoing                       \
-                -it \local/pl-pull_scp pull_scp -v 1        \
+                -it                                         \
+                local/pl-pull_scp pull_scp -v 1             \
                 --filepath /home/chris/Pictures             \
                 --host 192.168.1.200                        \
                 --username chris                            \
