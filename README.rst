@@ -27,9 +27,9 @@ Description
 
 Of course this assumes that the user executing this plugin has the correct login credentials to access the resource. Credentials are defined in either:
 
-    * a hard-coded .env file in the repo/container
-    * setting appropriate environment variables
-    * using plugin CLI arguments
+* a hard-coded .env file in the repo/container
+* setting appropriate environment variables
+* using plugin CLI arguments
 
 Other than login credentials, this plugin also needs a ``filepath`` in the remote user space. All files and directories rooted in this file ``filepath`` are copied into this plugin's ``outputdir``.
 
