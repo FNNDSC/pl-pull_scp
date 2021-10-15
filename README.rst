@@ -39,6 +39,7 @@ Warning
 This plugin/app is not considered or purported to be secure! One deployment vector has the login credentials contained within an `.env` file in cleartext and copied into the container. Deploying such a container will expose login credentials! For better security, supply login credentials from the CLI or from within environment variables:
 
 .. code:: bash
+
     export ENVIRONMENT=development
     export SSH_REMOTE_HOST=1.1.1.1
     export SSH_USERNAME=yourname
