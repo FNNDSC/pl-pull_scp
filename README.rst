@@ -169,7 +169,7 @@ Examples
 Using login credentials stored in the container's `.env` file:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: bash
+.. code:: console
 
     # Using internal .env file and only specifying the remote path...
     mkdir out && chmod 777 out
@@ -202,7 +202,7 @@ Using login credentials stored in the container's `.env` file:
 Using login credentials from the CLI:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: bash
+.. code:: console
 
     docker run --rm -u $(id -u) --name=pl-pull_scp          \
                 -v $PWD/out:/outgoing                       \
