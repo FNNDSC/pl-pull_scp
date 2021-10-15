@@ -211,7 +211,7 @@ Using login credentials from the CLI:
                 --filepath /home/chris/Pictures             \
                 --host 192.168.1.200                        \
                 --username chris                            \
-                --password 'chris1234'                      \
+                --password XXXXXXXXXXX                      \
                 /outgoing
     10-15-2021 17:05:13 | INFO: /usr/local/src/key.pub uploaded to 192.168.1.200
 

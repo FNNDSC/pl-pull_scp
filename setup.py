@@ -6,7 +6,7 @@ with open(path.join(path.dirname(path.abspath(__file__)), 'README.rst')) as f:
 
 setup(
     name             = 'pull_scp',
-    version          = '1.0.4',
+    version          = '1.0.6',
     description      = 'This plugin application is used to recursively copy data from a remote host into an analysis root node.',
     long_description = readme,
     author           = 'Rudolph Pienaar -- FNNDSC',
