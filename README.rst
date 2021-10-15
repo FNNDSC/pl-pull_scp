@@ -191,7 +191,7 @@ Using login credentials stored in the container's `.env` file:
     | |           ______       | |
     |_|          |______|      |_|
 
-    Version: 1.0.0
+    Version: X.Y.Z
     10-15-2021 16:25:38 | INFO: (remote): du -ksh /home/rudolphpienaar/Desktop: 142M	/home/  rudolphpienaar/Desktop
     10-15-2021 16:25:39 | INFO: Pulling rudolphpienaar@192.168.1.216:/home/rudolphpienaar/Desktop...
     10-15-2021 16:25:53 | INFO: Remote contents pulled to /outgoing
@@ -224,7 +224,7 @@ Using login credentials from the CLI:
     | |           ______       | |
     |_|          |______|      |_|
 
-    Version: 1.0.0
+    Version: X.Y.Z
     10-15-2021 17:05:14 | INFO: (remote): du -ksh /home/chris/Pictures: 81M	/home/chris/Pictures
     10-15-2021 17:05:14 | INFO: Pulling chris@192.168.1.200:/home/chris/Pictures...
     10-15-2021 17:06:01 | INFO: Remote contents pulled to /outgoing
