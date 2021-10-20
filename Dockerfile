@@ -33,6 +33,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 RUN pip install .
-COPY pull_scp/.env /usr/local/lib/python3.9/site-packages/pull_scp
+# COPY pull_scp/.env /usr/local/lib/python3.9/site-packages/pull_scp
+COPY key.pub        /tmp
+COPY pull_scp/.env  /tmp
 
 CMD ["pull_scp", "--help"]
