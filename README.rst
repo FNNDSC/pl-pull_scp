@@ -153,13 +153,15 @@ For this use case, copy your public key to ``/tmp/key.pub`` and create an enviro
 Run
 ~~~
 
-You need to specify an output directories using the `-v` flag to `docker run`.
+Since ``docker`` is the recommended usagage deployment, the following instructions are ``docker`` based.
+
+Being an _FS_ plugin, you should specify an output directory using the ``-v`` flag to ``docker run``.
 
 
 .. code:: bash
 
     docker run --rm -u $(id -u)                             \
-        -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing      \
+        -v $(pwd)/out:/outgoing                             \
         fnndsc/pl-pull_scp pull_scp                         \
         --username johnnyapple                              \
         --password 'mysecret'                               \
@@ -190,9 +192,10 @@ Examples
 Using login credentials stored in the container's `.env` file:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+All relevant login credentials are stored in ``/tmp/.env`` in the container. Note this method embeds the ``.env`` file in the container where it can be potentially expose credentials!
+
 .. code:: console
 
-    # Using internal .env file and only specifying the remote path...
     mkdir out && chmod 777 out
     docker run --rm -u $(id -u) --name=pl-pull_scp              \
                 -v $PWD/out:/outgoing                           \
@@ -222,6 +225,8 @@ Using login credentials stored in the container's `.env` file:
 
 Using login credentials from the CLI:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Credentials are supplied at run time. Contents of ``/tmp/.env`` are not used.
 
 .. code:: console
 
