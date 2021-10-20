@@ -52,8 +52,7 @@ Credit
 
 Most of the innards of this plugin are lightly adapted from the most excellent paramiko tutorial of Todd Birchard:
 
-    https://hackersandslackers.com/automate-ssh-scp-python-paramiko
-
+* https://hackersandslackers.com/automate-ssh-scp-python-paramiko
 
 
 Usage
@@ -123,11 +122,33 @@ Arguments
         If specified, print version number and exit.
 
 
+Install
+~~~~~~~
+
+Installation is either via ``docker`` (recommended) or directly from ``PyPI`` (less recommended).
+
+From docker
+^^^^^^^^^^^
+
+.. code:: bash
+
+    docker pull fnndsc/pl-pull_scp
+
 Getting inline help is:
 
 .. code:: bash
 
     docker run --rm fnndsc/pl-pull_scp pull_scp --man
+
+
+From PyPI
+^^^^^^^^^
+
+.. code:: bash
+
+    pip install pull_scp
+
+For this use case, copy your public key to ``/tmp/key.pub`` and create an environment file ``/tmp/.env`` that either contains your login data/credentials or contains "dummy" data. The ``.env``  _must_ exist for the app to work -- regardless of the validity of its data.
 
 Run
 ~~~
