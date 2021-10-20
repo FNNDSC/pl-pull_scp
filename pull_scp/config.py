@@ -6,7 +6,11 @@ from .log   import LOGGER
 import      pudb
 
 # Load environment variables from .env
+# Originally set to the "installation" directory of the app...
 BASE_DIR = path.abspath(path.dirname(__file__))
+
+# But using /tmp might just be easier.
+BASE_DIR = '/tmp'
 load_dotenv(path.join(BASE_DIR, ".env"))
 
 # SSH Connection Variables
