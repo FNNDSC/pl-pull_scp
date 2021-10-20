@@ -204,7 +204,7 @@ All relevant login credentials are stored in ``/tmp/.env`` in the container. Not
                 --filepath /home/rudolphpienaar/Desktop         \
                 outgoing
 
-    10-15-2021 16:25:38 | INFO: /usr/local/src/key.pub uploaded to 192.168.1.216
+    10-15-2021 16:25:38 | INFO: /tmp/key.pub uploaded to 192.168.1.216
 
                  _ _
                 | | |
@@ -239,7 +239,7 @@ Credentials are supplied at run time. Contents of ``/tmp/.env`` are not used.
                 --username chris                            \
                 --password XXXXXXXXXXX                      \
                 /outgoing
-    10-15-2021 17:05:13 | INFO: /usr/local/src/key.pub uploaded to 192.168.1.200
+    10-15-2021 17:05:13 | INFO: /tmp/key.pub uploaded to 192.168.1.200
 
                  _ _
                 | | |
